@@ -1,4 +1,8 @@
 {
+  "files": [
+    "./dist/**/*",
+    "/.playground/**/*"
+  ],
   "server": {
     "baseDir": "src",
     "routes": {
