@@ -1,0 +1,28 @@
+{
+  "name": "angular-date-only",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github/erikssonlarsb/angular-date-only"
+  },
+  "author": {
+    "name": "Lars Eriksson",
+    "email": "erikssonlarsb@gmail.com"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github/erikssonlarsb/angular-date-only/issues"
+  },
+  "main": "angular-date-only.umd.js",
+  "module": "angular-date-only.js",
+  "jsnext:main": "angular-date-only.js",
+  "typings": "angular-date-only.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
