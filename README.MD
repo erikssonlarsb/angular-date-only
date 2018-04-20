@@ -1,4 +1,9 @@
-# angular-date-only
+## About
+Angular module for managing JavaScript dates without the time part. The implementation is inspired by Bob Lauer's [dateonly](https://www.npmjs.com/package/dateonly)/[mongoose-dateonly](https://www.npmjs.com/package/mongoose-dateonly) packages.
+
+For trivial usage, checkout the library playground at the  [angular-date-only](https://github.com/erikssonlarsb/angular-date-only) GitHub repository.
+
+For an example of how the module can be utilized in a MEAN (MongoDB, Express, Angular, Node) setup, please checkout my [hox-trader](https://github.com/erikssonlarsb/hox-trader) repository on GitHub.
 
 ## Installation
 
@@ -8,15 +13,9 @@ To install this library, run:
 $ npm install angular-date-only --save
 ```
 
-## Consuming your library
+## Usage
 
-Once you have published your library to npm, you can import your library in any Angular application by running:
-
-```bash
-$ npm install angular-date-only
-```
-
-and then from your Angular `AppModule`:
+Once installed, import `DateOnlyModule` into your `AppModule`:
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,8 +23,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-// Import your library
-import { SampleModule } from 'angular-date-only';
+// Import the module
+import { DateOnlyModule } from 'angular-date-only';
 
 @NgModule({
   declarations: [
@@ -34,8 +33,8 @@ import { SampleModule } from 'angular-date-only';
   imports: [
     BrowserModule,
 
-    // Specify your library as an import
-    LibraryModule
+    // Specify the module as an import
+    DateOnlyModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -43,29 +42,76 @@ import { SampleModule } from 'angular-date-only';
 export class AppModule { }
 ```
 
-Once your library is imported, you can use its components, directives and pipes in your Angular application:
+Once your module is imported, you can use the class and pipe in your Angular application:
+#### Class in models
+```typescript
+import { DateOnly } from  'angular-date-only';
 
+export class User {
+  name: string;
+  birthday: DateOnly;
+
+  constructor(name: string, birthday: DateOnly) {
+    this.name = name;
+    this.birthday = birthday;
+  }
+}
+```
+
+#### Class in components
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { DateOnly }  from 'angular-date-only';
+
+@Component({
+  selector: 'app',
+  template: `<h3>date-only: {{ date }}</h3>`
+})
+class AppComponent implements OnInit {
+  dateNumber: number = 20180420;
+  date: DateOnly;
+
+  constructor() { }
+
+  ngOnInit(): void {
+    this.date = new DateOnly(this.dateNumber);
+  }
+}
+```
+
+#### Pipe in view
+The dateonly pipe extends the standard Angular date pipe. So any formatting argument
+can be applied in similar manner,
 ```xml
-<!-- You can now use your library component in app.component.html -->
-<h1>
-  {{title}}
-</h1>
-<sampleComponent></sampleComponent>
+<h1>{{ user.birthday | dateonly }}</h1>
+<h1>{{ user.birthday | dateonly: 'shortDate' }}</h1>
+<h1>{{ user.birthday | dateonly: 'full' }}</h1>
 ```
 
-## Development
+#### Pipe in code
+```typescript
+import { Component } from '@angular/core';
+import { DateOnlyPipe } from 'angular-date-only';
 
-To generate all `*.js`, `*.d.ts` and `*.metadata.json` files:
+@Component({
+  selector: 'app',
+  template: `<h3>date-only: {{ bithday }}</h3>`,
+  providers: [DateOnlyPipe]
+})
+class AppComponent implements OnInit {
+  bithday: string;
 
-```bash
-$ npm run build
+  constructor(private dateOnlyPipe: DateOnlyPipe)
+
+  setBirthDay(birthday: number): void {
+    this.birthday = this.dateOnlyPipe.transform(birthday;)
+  }
+}
+
 ```
 
-To lint all `*.ts` files:
-
-```bash
-$ npm run lint
-```
+## Testing
+To be implemented.
 
 ## License
 
