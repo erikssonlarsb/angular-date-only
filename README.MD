@@ -1,5 +1,7 @@
 ## About
-Angular module for managing JavaScript dates without the time part. The implementation is inspired by Bob Lauer's [dateonly](https://www.npmjs.com/package/dateonly)/[mongoose-dateonly](https://www.npmjs.com/package/mongoose-dateonly) packages.
+Angular module for managing JavaScript dates without the time part.
+
+The module is useful when retrieving date-only objects from an api, and you want to preserve this date structure. The implementation is inspired by Bob Lauer's [dateonly](https://www.npmjs.com/package/dateonly)/[mongoose-dateonly](https://www.npmjs.com/package/mongoose-dateonly) packages.
 
 For trivial usage, checkout the library playground at the  [angular-date-only](https://github.com/erikssonlarsb/angular-date-only) GitHub repository.
 

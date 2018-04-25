@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github/erikssonlarsb/angular-date-only"
+    "url": "https://github.com/erikssonlarsb/angular-date-only"
   },
   "author": {
     "name": "Lars Eriksson",
@@ -27,7 +27,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github/erikssonlarsb/angular-date-only/issues"
+    "url": "https://github.com/erikssonlarsb/angular-date-only/issues"
   },
   "devDependencies": {
     "@angular/common": "^5.0.0",
