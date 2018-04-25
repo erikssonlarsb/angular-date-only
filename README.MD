@@ -1,7 +1,11 @@
 ## About
 Angular module for managing JavaScript dates without the time part.
 
-The module is useful when retrieving date-only objects from an api, and you want to preserve this date structure. The implementation is inspired by Bob Lauer's [dateonly](https://www.npmjs.com/package/dateonly)/[mongoose-dateonly](https://www.npmjs.com/package/mongoose-dateonly) packages.
+Working with dates in JavaScript can be a hassle, since Date objects also contain a time part. Due to time-zone differences between application and server, or from storing UTC dates in the database (as in MongoDB), the date-only representation can easily shift one day back or forth.
+
+For server-side, there's two packages available by Bob Lauer: [dateonly](https://www.npmjs.com/package/dateonly) and [mongoose-dateonly](https://www.npmjs.com/package/mongoose-dateonly).
+
+Angular-date-only is useful when you retrieve date-only objects from an api and want to preserve this date structure.
 
 For trivial usage, checkout the library playground at the  [angular-date-only](https://github.com/erikssonlarsb/angular-date-only) GitHub repository.
 
@@ -44,7 +48,7 @@ import { DateOnlyModule } from 'angular-date-only';
 export class AppModule { }
 ```
 
-Once your module is imported, you can use the class and pipe in your Angular application:
+When the module is imported, you can use the class and pipe in your Angular application:
 #### Class in models
 ```typescript
 import { DateOnly } from  'angular-date-only';
