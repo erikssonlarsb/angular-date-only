@@ -70,7 +70,8 @@ export class DateOnly {
   }
 
   toISOString(): string {
-    return this.year.toString() + "-" + this.month.toString().padStart(2, "0") + "-" + this.date.toString().padStart(2, "0");
+    // Add +1 to month since 0 is January
+    return this.year.toString() + "-" + (this.month + 1).toString().padStart(2, "0") + "-" + this.date.toString().padStart(2, "0");
   }
 
   toJSON(): number {
