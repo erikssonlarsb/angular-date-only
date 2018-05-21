@@ -69,6 +69,10 @@ export class DateOnly {
     return this.toDate().toDateString();
   }
 
+  toISOString(): string {
+    return this.year.toString() + this.month.toString().padStart(2, "0") + this.date.toString().padStart(2, "0");
+  }
+
   toJSON(): number {
     return this.valueOf();
   }
