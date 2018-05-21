@@ -3,12 +3,12 @@ export class DateOnly {
   month: number;
   year: number;
 
-  constructor(date) {
+  constructor(date?: any) {
 
     if (typeof date === 'string') {
       date = new Date(date);
     }
-    if (typeof date === 'number') {
+    else if (typeof date === 'number') {
       date = this.numberToDate(date);
     }
 
@@ -70,7 +70,7 @@ export class DateOnly {
   }
 
   toISOString(): string {
-    return this.year.toString() + this.month.toString().padStart(2, "0") + this.date.toString().padStart(2, "0");
+    return this.year.toString() + "-" + this.month.toString().padStart(2, "0") + "-" + this.date.toString().padStart(2, "0");
   }
 
   toJSON(): number {

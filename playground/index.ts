@@ -25,8 +25,10 @@ class AppComponent implements OnInit {
   dateNumber: number = 20180420;
   date: DateOnly;
   toString: string;
+  toISOString: string;
   valueOf: number;
   toJSON: number;
+  dateToday: DateOnly;
 
 
   constructor() { }
@@ -36,10 +38,14 @@ class AppComponent implements OnInit {
     console.log(this.date);
     this.toString = this.date.toString();
     console.log(this.toString);
+    this.toISOString = this.date.toISOString();
     this.valueOf = this.date.valueOf();
     console.log(this.valueOf);
     this.toJSON = this.date.toJSON();
     console.log(this.toJSON);
+    this.dateToday = new DateOnly();
+    console.log(this.dateToday);
+
   }
 }
 
